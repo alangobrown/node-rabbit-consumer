@@ -17,14 +17,14 @@ module.exports = {
         if(err) throw err;
      
         var collection = db.collection('col');
-        collection.insert({"message":msg, "date":currentDate}, function(err, docs) {
+        collection.insert({"message":msg, "date":currentDate, "consumer-host":process.env.HOSTNAME}, function(err, docs) {
         	      // Locate all the entries using find 
 
             console.log("Written message %s to collection", msg);
-          	collection.find({},{"_id":0}).limit(1).toArray(function(err, results) {
-            	console.dir(results);
-            	db.close();
-        	});
+          	//collection.find({},{"_id":0}).limit(1).toArray(function(err, results) {
+            	//console.dir(results);
+            	//db.close();
+        	 //});
         });
     });
 

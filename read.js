@@ -2,6 +2,8 @@
 var mongoHandler = require('./mongo-handler');
 
 var q = 'hello';
+
+console.log('Running app - connecting to RabbitMQ and waiting to consume messages');
  
 function bail(err) {
   console.error(err);
