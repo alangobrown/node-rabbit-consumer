@@ -1,5 +1,5 @@
 
-
+var mongoHandler = require('./mongo-handler');
 
 var q = 'hello';
  
@@ -16,8 +16,14 @@ function consumer(conn) {
     if (err != null) bail(err);
     ch.assertQueue(q, {durable: false});
     ch.consume(q, function(msg) {
+      
+      //Found a message
       if (msg !== null) {
         console.log(msg.content.toString());
+
+
+        mongoHandler.write(msg.content.toString());
+
         ch.ack(msg);
       }
     });
