@@ -1,0 +1,12 @@
+{
+  "name": "read-from-rabbit",
+  "private": "true",
+  "version": "0.0.1",
+  "description": "simple node.js app to read a message from rabbit mq",
+  "scripts": {
+    "start": "node read.js"
+  },
+  "dependencies": {
+    "amqplib": "^0.3.1"
+  }
+}
